@@ -1,0 +1,183 @@
+{
+  "contractName": "Imago",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/daniel/Development/github.com/cleanunicorn/imago/contracts/Imago.sol\":\"Imago\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/daniel/Development/github.com/cleanunicorn/imago/contracts/Imago.sol\":{\"keccak256\":\"0xc83201c962b3c4fab523ec47787de5b547726bd9f3162e72ea313b0ad083678c\",\"urls\":[\"bzz-raw://1f85e062c7237b97832607fba9ce4b2e5c1961a2d011629e3d6b7d840bb9edec\",\"dweb:/ipfs/QmXcqHppvEzmjrb1yCadXy6MZFURNK96GfMwtTMCtMcReU\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820e00594760910e43ad0b2a07c950dc965f3eda31585051df771a2bcc20a66cba164736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820e00594760910e43ad0b2a07c950dc965f3eda31585051df771a2bcc20a66cba164736f6c63430005100032",
+  "sourceMap": "35:47:0:-;;;54:26;8:9:-1;5:2;;;30:1;27;20:12;5:2;54:26:0;35:47;;;;;;",
+  "deployedSourceMap": "35:47:0:-;;;;;",
+  "source": "pragma solidity >= 0.5.0 < 0.7.0;\n\ncontract Imago {\n  constructor() public {\n  }\n}\n",
+  "sourcePath": "/home/daniel/Development/github.com/cleanunicorn/imago/contracts/Imago.sol",
+  "ast": {
+    "absolutePath": "/home/daniel/Development/github.com/cleanunicorn/imago/contracts/Imago.sol",
+    "exportedSymbols": {
+      "Imago": [
+        6
+      ]
+    },
+    "id": 7,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:33:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 6,
+        "linearizedBaseContracts": [
+          6
+        ],
+        "name": "Imago",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4,
+              "nodeType": "Block",
+              "src": "75:5:0",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 5,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "65:2:0"
+            },
+            "returnParameters": {
+              "id": 3,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "75:0:0"
+            },
+            "scope": 6,
+            "src": "54:26:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7,
+        "src": "35:47:0"
+      }
+    ],
+    "src": "0:83:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/daniel/Development/github.com/cleanunicorn/imago/contracts/Imago.sol",
+    "exportedSymbols": {
+      "Imago": [
+        6
+      ]
+    },
+    "id": 7,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:33:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 6,
+        "linearizedBaseContracts": [
+          6
+        ],
+        "name": "Imago",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4,
+              "nodeType": "Block",
+              "src": "75:5:0",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 5,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "65:2:0"
+            },
+            "returnParameters": {
+              "id": 3,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "75:0:0"
+            },
+            "scope": 6,
+            "src": "54:26:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7,
+        "src": "35:47:0"
+      }
+    ],
+    "src": "0:83:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-02-23T16:38:22.948Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

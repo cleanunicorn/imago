@@ -1,0 +1,51 @@
+{
+  "name": "imago",
+  "version": "0.0.1",
+  "description": "",
+  "main": "truffle-config.js",
+  "dependencies": {
+    "truffle": "^5.1.14"
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.4",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^3.0.0",
+    "chai-string": "^1.5.0",
+    "dotenv": "^8.2.0",
+    "eth-gas-reporter": "^0.2.15",
+    "ethers": "^4.0.45",
+    "ganache-cli": "^6.9.1",
+    "ganache-core": "^2.10.2",
+    "solium": "^1.2.5",
+    "tslint": "^6.0.0",
+    "typechain": "^1.0.5",
+    "typechain-target-ethers": "^1.0.3",
+    "typescript": "^3.8.2"
+  },
+  "scripts": {
+    "build": "truffle compile --all && npm run gen:contract-typings && tsc -b",
+    "test": "tsc -b && truffle test --network ganache test/*.spec.js",
+    "gen:contract-typings": "typechain --target ethers --outDir typings/contracts './build/contracts/*.json'",
+    "ganache": "ganache-cli --networkId ${npm_package_config_ganacheNetworkID} --port ${npm_package_config_ganachePort} --gasLimit ${npm_package_config_ganacheGasLimit} --gasPrice ${npm_package_config_ganacheGasPrice} --defaultBalanceEther ${npm_package_config_etherBalance} --deterministic --mnemonic \"${npm_package_config_mnemonic}\" ${npm_package_config_extra}",
+    "ganache:verbose": "ganache-cli --networkId ${npm_package_config_ganacheNetworkID} --verbose --port ${npm_package_config_ganachePort} --gasLimit ${npm_package_config_ganacheGasLimit} --gasPrice ${npm_package_config_ganacheGasPrice} --defaultBalanceEther ${npm_package_config_etherBalance} --deterministic --mnemonic \"${npm_package_config_mnemonic}\" ${npm_package_config_extra}",
+    "ganache:stop": "ps aux | grep ganache-cli | grep -v grep | awk '{print $2}' | xargs kill -9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleanunicorn/imago.git"
+  },
+  "keywords": [
+    "ethereum",
+    "ERC777",
+    "ERC20",
+    "security"
+  ],
+  "author": "Daniel Luca",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cleanunicorn/imago/issues"
+  },
+  "homepage": "https://github.com/cleanunicorn/imago#readme"
+}

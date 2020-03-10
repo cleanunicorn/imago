@@ -28,6 +28,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eth-gas-reporter": "^0.2.15",
     "mocha": "^7.0.1",
+    "prepare": "node scripts/prepare.js",
     "solhint": "^2.3.0"
   },
   "scripts": {

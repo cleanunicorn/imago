@@ -5,17 +5,21 @@ import "./IERC777.sol";
 contract Imago is IERC777 {
     string private _name;
     string private _symbol;
+    uint private _totalSupply;
 
     address public owner;
 
+
     constructor(
         string memory name,
-        string memory symbol
+        string memory symbol,
+        uint totalSupply
     ) public {
         owner = msg.sender;
 
         _name = name;
         _symbol = symbol;
+        _totalSupply = totalSupply;
     }
 
     function name()
@@ -34,6 +38,15 @@ contract Imago is IERC777 {
         returns (string memory)
     {
         return _symbol;
+    }
+
+    function totalSupply()
+        public
+        override(IERC777)
+        view
+        returns (uint)
+    {
+        return _totalSupply;
     }
 
     // function authorizeOperator() public virtual {};

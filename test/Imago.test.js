@@ -9,16 +9,16 @@ const { BN } = require('@openzeppelin/test-helpers')
 
 const Imago = contract.fromArtifact('Imago')
 
-const initialSupply = new BN('10000');
 const name = 'Imago'
 const symbol = 'IMG'
+const initialSupply = new BN('10000');
 
 describe('Imago', () => {
     beforeEach(async () => {
-        this.imago = await Imago.new(name, symbol)
+        this.imago = await Imago.new(name, symbol, initialSupply)
     })
 
-    context('ERC20', () => {
+    context('should behave like ERC20', () => {
         const [ holder, defaultOperatorA, anyone ] = accounts;
         shouldBehaveLikeERC20('ERC777', initialSupply, holder, anyone, defaultOperatorA);
     })

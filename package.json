@@ -27,8 +27,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eth-gas-reporter": "^0.2.15",
+    "micromatch": "^4.0.2",
     "mocha": "^7.0.1",
-    "prepare": "node scripts/prepare.js",
     "solhint": "^2.3.0"
   },
   "scripts": {
@@ -39,7 +39,8 @@
     "lint:js": "eslint --ignore-path .gitignore .",
     "lint:js:fix": "eslint --ignore-path .gitignore . --fix",
     "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
-    "test": "npm run build && mocha --exit --recursive test"
+    "test": "npm run build && mocha --exit --recursive test",
+    "prepare": "node scripts/prepare.js"
   },
   "repository": {
     "type": "git",

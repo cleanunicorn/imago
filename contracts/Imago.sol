@@ -6,7 +6,7 @@ contract Imago is IERC777 {
     string private _name;
     string private _symbol;
 
-    address owner;
+    address public owner;
 
     constructor(
         string memory name,

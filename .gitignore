@@ -111,3 +111,6 @@ dist
 
 # truffle build directory
 build/
+
+# Openzeppelin temp folder
+.openzeppelin/

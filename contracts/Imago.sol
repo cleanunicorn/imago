@@ -9,17 +9,25 @@ contract Imago is IERC777 {
 
     address public owner;
 
+    // Keeps track of the each actor's balances
+    mapping(address => uint256) private _balances;
+
 
     constructor(
         string memory name,
         string memory symbol,
         uint totalSupply
     ) public {
+        // Set the owner
         owner = msg.sender;
 
+        // Set basic information about the token
         _name = name;
         _symbol = symbol;
         _totalSupply = totalSupply;
+
+        // Add all of the tokens to the owner;
+        _balances[msg.sender] = totalSupply;
     }
 
     function name()
@@ -49,5 +57,22 @@ contract Imago is IERC777 {
         return _totalSupply;
     }
 
-    // function authorizeOperator() public virtual {};
+    function balanceOf(address holder)
+        public
+        override(IERC777)
+        view
+        returns (uint)
+    {
+        return _balances[holder];
+    }
+
+    function transfer(address recipient, uint amount)
+        public
+        returns (bool)
+    {
+        _balances[msg.sender] -= amount;
+        _balances[recipient] += amount;
+
+        return true;
+    }
 }

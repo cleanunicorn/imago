@@ -4,7 +4,7 @@ interface IERC777 {
     function name() external view returns (string memory);
     function symbol() external view returns (string memory);
     function totalSupply() external view returns (uint256);
-    // function balanceOf(address holder) external view returns (uint256);
+    function balanceOf(address holder) external view returns (uint256);
     // function granularity() external view returns (uint256);
 
     // function defaultOperators() external view returns (address[] memory);

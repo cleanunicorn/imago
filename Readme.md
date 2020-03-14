@@ -6,6 +6,11 @@
 
 This isn't even my final form.
 
+**Definition**
+
+- the final and fully developed adult stage of an insect, typically winged.
+- an unconscious idealized mental image of someone, especially a parent, which influences a person's behavior.
+
 ## Description
 
 A token contract designed to be able to change form and behavior. It can be used to test other contracts that depend on the behavior consistency, or blockchain explorers that read the name, symbol, balances or other information that should not change or should not be malicious.

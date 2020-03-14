@@ -2,10 +2,15 @@ pragma solidity >= 0.6.0;
 
 import "./IERC777.sol";
 
+
 contract Imago is IERC777 {
     string private _name;
     string private _symbol;
     uint private _totalSupply;
+    uint private _granularity;
+
+    address[] private _defaultOperatorsArray;
+    mapping(address => bool) _defaultOperators;
 
     address public owner;
 
@@ -16,7 +21,9 @@ contract Imago is IERC777 {
     constructor(
         string memory name,
         string memory symbol,
-        uint totalSupply
+        uint totalSupply,
+        uint granularity,
+        address[] memory defaultOperators
     ) public {
         // Set the owner
         owner = msg.sender;
@@ -25,6 +32,13 @@ contract Imago is IERC777 {
         _name = name;
         _symbol = symbol;
         _totalSupply = totalSupply;
+        _granularity = granularity;
+
+        // Set default operators
+        _defaultOperatorsArray = defaultOperators;
+        for (uint i = 0; i < _defaultOperatorsArray.length; i++) {
+            _defaultOperators[_defaultOperatorsArray[i]] = true;
+        }
 
         // Add all of the tokens to the owner;
         _balances[msg.sender] = totalSupply;
@@ -57,6 +71,14 @@ contract Imago is IERC777 {
         return _totalSupply;
     }
 
+    function granularity()
+        public
+        override(IERC777)
+        view returns (uint)
+    {
+        return _granularity;
+    }
+
     function balanceOf(address holder)
         public
         override(IERC777)
@@ -75,4 +97,29 @@ contract Imago is IERC777 {
 
         return true;
     }
+
+    function defaultOperators()
+        public
+        override(IERC777)
+        view
+        returns (address[] memory)
+    {
+        return _defaultOperatorsArray;
+    }
+
+    function isOperatorFor(
+        address operator,
+        address holder
+    )
+        public
+        override(IERC777)
+        view
+        returns (bool)
+    {
+        if (_defaultOperators[operator]) {
+            return true;
+        }
+    }
+
+
 }

@@ -5,13 +5,13 @@ interface IERC777 {
     function symbol() external view returns (string memory);
     function totalSupply() external view returns (uint256);
     function balanceOf(address holder) external view returns (uint256);
-    // function granularity() external view returns (uint256);
+    function granularity() external view returns (uint256);
 
-    // function defaultOperators() external view returns (address[] memory);
-    // function isOperatorFor(
-    //     address operator,
-    //     address holder
-    // ) external view returns (bool);
+    function defaultOperators() external view returns (address[] memory);
+    function isOperatorFor(
+        address operator,
+        address holder
+    ) external view returns (bool);
     // function authorizeOperator(address operator) external;
     // function revokeOperator(address operator) external;
 

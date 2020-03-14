@@ -10,7 +10,7 @@ contract Imago is IERC777 {
     uint private _granularity;
 
     address[] private _defaultOperatorsArray;
-    mapping(address => bool) _defaultOperators;
+    mapping(address => bool) private _defaultOperators;
 
     address public owner;
 
@@ -109,7 +109,7 @@ contract Imago is IERC777 {
 
     function isOperatorFor(
         address operator,
-        address holder
+        address
     )
         public
         override(IERC777)

@@ -8,6 +8,8 @@ const {
 
 const {
     BN,
+    expectRevert,
+    expectEvent,
 } = require('@openzeppelin/test-helpers')
 
 const Imago = contract.fromArtifact('Imago')
@@ -21,11 +23,12 @@ const [
     owner,
     accountA,
     // accountB,
-    operatorA,
-    operatorB,
+    defaultOperatorA,
+    defaultOperatorB,
+    otherOperatorA,
 ] = accounts
 
-const defaultOperators = [operatorA, operatorB]
+const defaultOperators = [defaultOperatorA, defaultOperatorB]
 
 const ImagoShouldReturnTrue = contract.fromArtifact('ImagoShouldReturnTrue')
 
@@ -80,8 +83,9 @@ describe('Imago', () => {
                 symbol,
                 initialSupply,
                 granularity,
-                defaultOperators,
-                { from: owner },
+                defaultOperators, {
+                    from: owner,
+                },
             )
             await shouldReturnTrue.transfer(accountA, initialSupply, {
                 from: owner,
@@ -96,8 +100,35 @@ describe('Imago', () => {
             })
 
             it('default operators are defined as an operator for any account', async () => {
-                expect(await this.imago.isOperatorFor(operatorA, accountA)).to.equal(true)
+                expect(await this.imago.isOperatorFor(defaultOperatorA, accountA)).to.equal(true)
             })
+        })
+
+        it('can authorize operator', async () => {
+            expect(await this.imago.isOperatorFor(otherOperatorA, accountA)).to.equal(false)
+            await this.imago.authorizeOperator(otherOperatorA, { from: accountA })
+            expect(await this.imago.isOperatorFor(otherOperatorA, accountA)).to.equal(true)
+        })
+
+        it('reverts if operator is the same account', async () => {
+            expect(await this.imago.isOperatorFor(accountA, accountA)).to.equal(false)
+            await expectRevert(
+                this.imago.authorizeOperator(accountA, { from: accountA }),
+                'ERC777: authorizing self as operator',
+            )
+        })
+
+        it('emits AuthorizedOperator on successful operator authrorize', async () => {
+            expect(await this.imago.isOperatorFor(otherOperatorA, accountA)).to.equal(false)
+            const tx = await this.imago.authorizeOperator(otherOperatorA, { from: accountA })
+            expectEvent(
+                tx,
+                'AuthorizedOperator',
+                {
+                    operator: otherOperatorA,
+                    holder: accountA,
+                },
+            )
         })
     })
 })

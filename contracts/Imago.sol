@@ -9,8 +9,12 @@ contract Imago is IERC777 {
     uint private _totalSupply;
     uint private _granularity;
 
+    // Keep track of default operators
     address[] private _defaultOperatorsArray;
     mapping(address => bool) private _defaultOperators;
+
+    // Operators
+    mapping(address => mapping(address => bool)) private _operators;
 
     address public owner;
 
@@ -88,6 +92,11 @@ contract Imago is IERC777 {
         return _balances[holder];
     }
 
+    /*
+    - [ ] Emit event
+    - [ ] Add safe math
+    - [ ] Run callback functions
+    */
     function transfer(address recipient, uint amount)
         public
         returns (bool)
@@ -109,7 +118,7 @@ contract Imago is IERC777 {
 
     function isOperatorFor(
         address operator,
-        address
+        address holder
     )
         public
         override(IERC777)
@@ -119,7 +128,24 @@ contract Imago is IERC777 {
         if (_defaultOperators[operator]) {
             return true;
         }
+
+        if (_operators[holder][operator]) {
+            return true;
+        }
+
+        return false;
     }
 
+    function authorizeOperator(
+        address operator
+    )
+        public
+        override(IERC777)
+    {
+        require(operator != msg.sender, "ERC777: authorizing self as operator");
 
+        _operators[msg.sender][operator] = true;
+
+        emit AuthorizedOperator(operator, msg.sender);
+    }
 }

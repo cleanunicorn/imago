@@ -12,7 +12,7 @@ interface IERC777 {
         address operator,
         address holder
     ) external view returns (bool);
-    // function authorizeOperator(address operator) external;
+    function authorizeOperator(address operator) external;
     // function revokeOperator(address operator) external;
 
     // function send(address to, uint256 amount, bytes calldata data) external;

@@ -1,5 +1,6 @@
 # Imago
 
+![Twitter Follow](https://img.shields.io/twitter/follow/cleanunicorn?style=shield)
 ![GitHub](https://img.shields.io/github/license/cleanunicorn/imago)
 [![CircleCI](https://circleci.com/gh/cleanunicorn/imago.svg?style=shield)](https://circleci.com/gh/cleanunicorn/imago)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9848b6faea0b4a32abdcfb5bd7cdf6f5)](https://www.codacy.com/manual/lucadanielcostin/imago)
